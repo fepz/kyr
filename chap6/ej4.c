@@ -16,13 +16,12 @@ struct tnode {
 struct tnode *addtree(struct tnode*, char*);
 struct tnode *addnumtree(struct tnode *p, int count, char *w);
 struct tnode *talloc(void);
-void treeprint(struct tnode*);
 struct tnode *traverse(struct tnode*, struct tnode*);
+void treeprint(struct tnode*);
 int getword(char*, int);
 char* mystrdup(char *s);
 int getch(void);
 void ungetch(int c);
-
 
 char buf[BUFSIZE];
 int bufp = 0;
@@ -48,7 +47,7 @@ int main(int argc, char* argv[])
     exit(EXIT_SUCCESS);
 }
 
-/* traverse: */
+/* traverse: recorre arbol from y crea arbol to */
 struct tnode* traverse(struct tnode *from, struct tnode *to)
 {
     if (from != NULL) {
@@ -59,7 +58,7 @@ struct tnode* traverse(struct tnode *from, struct tnode *to)
     return to;
 }
 
-/* addtree: agrega un nodo con w en o bajo p. */
+/* addnumtree: agrega un nodo con w en o bajo p. */
 struct tnode *addnumtree(struct tnode *p, int count, char *w)
 {
     if (p == NULL) {
@@ -174,3 +173,4 @@ void ungetch(int c)
         buf[bufp++] == c;
     }
 }
+
